@@ -2,7 +2,7 @@ Summary:	Hardware detection library
 Summary(pl):	Biblioteka wykrywaj±ca sprzêt
 Name:		detect
 Version:	0.9.72
-Release:	1
+Release:	3
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.linux-mandrake.com/pub/harddrake/SOURCES/%{name}-%{version}.tar.bz2
@@ -15,6 +15,7 @@ Patch4:		%{name}-ia64-io-h.patch.bz2
 Patch5:		%{name}-kver-ppc.patch.bz2
 Patch6:		%{name}-0.9.72-alpha.patch.bz2
 Patch7:		%{name}-0.9.72-cpu-detect-ppc.patch.bz2
+Patch8:		%{name}-acam.patch
 URL:		http://www.linux-mandrake.com/harddrake/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -104,6 +105,8 @@ Statyczna wersja biblioteki detect.
 %ifarch alpha
 %patch6 -p1
 %endif
+%patch8 -p1
+ma acconfig.h config.h.in
 
 %build
 rm -f missing
