@@ -26,7 +26,6 @@ BuildRequires:	libtool
 BuildRequires:	texinfo
 %ifarch %{ix86}
 Requires:	isapnptools >= 1.21
-Requires:	detect-lst
 %endif
 Requires:	%{name}-libs = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -120,21 +119,9 @@ cat po/Makefile.in > po/Makefile
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
-#make install \
-#	prefix=$RPM_BUILD_ROOT%{prefix} \
-#	mandir=$RPM_BUILD_ROOT%{_mandir} \
-#	libdir=$RPM_BUILD_ROOT%{_libdir} \
-#	sbindir=$RPM_BUILD_ROOT%{_sbindir} \
-#	datadir=$RPM_BUILD_ROOT%{_datadir} \
-#	includedir=$RPM_BUILD_ROOT%{_includedir}
 
-#not installed by make install script
-
-cd $RPM_BUILD_ROOT%{prefix}/lib && {
-ln -s libdetect.so.0.0.0 libdetect.so.0
-ln -s libdetect.so.0.0.0 libdetect.so
-}
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang detect
 
@@ -146,18 +133,19 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS COPYING ChangeLog INSTALL NEWS README TODO VERSION docs/FAQ
+%doc AUTHORS BUGS ChangeLog NEWS README docs/FAQ
 %attr(755,root,root) %{_sbindir}/detect
 
 %files libs -f detect.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libdetect.so.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%{_datadir}/detect
 
 %files libs-devel
 %defattr(644,root,root,755)
 %doc docs/{Programming,API,ISA-Structure,PCI-Structure}
-%{_libdir}/libdetect.la
-%attr(755,root,root) %{_libdir}/libdetect.so
+%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/lib*.la
 %{_includedir}/detect.h
 
 %files libs-static
