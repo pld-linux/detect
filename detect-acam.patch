@@ -1,0 +1,46 @@
+--- detect/configure.in.old	Mon Feb 23 04:17:51 2004
++++ detect/configure.in	Mon Feb 23 04:25:33 2004
+@@ -1,6 +1,6 @@
+ dnl Process this file with autoconf to produce a configure script.
+ AC_INIT(src)
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS(config.h)
+ AM_INIT_AUTOMAKE(detect, 0.9.72)
+ 
+ AM_MAINTAINER_MODE
+@@ -57,7 +57,7 @@
+ ALL_LINGUAS="af ar az be bg br bs ca cs cy da de el eo es et eu fi fr ga gl hr hu id it ja ka ko lt lv nl no pl pt pt_BR ro ru sk sl sp sq sr sv tg th tr uk uz vi wa zh_CN zh_TW"
+ 
+ AM_GNU_GETTEXT
+-AC_DEFINE(HAVE_CATGETS)
++AC_DEFINE([HAVE_CATGETS], [], [missing desc])
+ AC_DEFINE(ENABLE_NLS)
+ AC_DEFINE(HAVE_LC_MESSAGES)
+ AC_DEFINE(HAVE_STPCPY)
+@@ -68,21 +68,16 @@
+ fi
+ 				  
+ 
+-LOCALEDIR=$prefix/share/locale
+-AC_DEFINE_UNQUOTED(LOCALEDIR, "$LOCALEDIR")
++AC_DEFINE_UNQUOTED([LOCALEDIR], ["$prefix/share/locale"], [missing desc])
+ AC_SUBST(LOCALEDIR)
+ 
+-PATH_ISA_LST=$prefix/share/detect/isa.lst
+-PATH_PCI_LST=$prefix/share/detect/pci.lst	
+-PATH_PCMCIA_LST=$prefix/share/detect/pcmcia.lst	
+-PATH_USB_LST=$prefix/share/detect/usb.lst
+-AC_DEFINE_UNQUOTED(PATH_ISA_LST, "$PATH_ISA_LST")
++AC_DEFINE_UNQUOTED([PATH_ISA_LST], ["$prefix/share/detect/isa.lst"], [missing desc])
+ AC_SUBST(PATH_ISA_LST)
+-AC_DEFINE_UNQUOTED(PATH_PCI_LST, "$PATH_PCI_LST")
++AC_DEFINE_UNQUOTED([PATH_PCI_LST], ["$prefix/share/detect/pci.lst"], [missing desc])
+ AC_SUBST(PATH_PCI_LST)
+-AC_DEFINE_UNQUOTED(PATH_PCMCIA_LST, "$PATH_PCMCIA_LST")
++AC_DEFINE_UNQUOTED([PATH_PCMCIA_LST], ["$prefix/share/detect/pcmcia.lst"], [missing desc])
+ AC_SUBST(PATH_PCMCIA_LST)
+-AC_DEFINE_UNQUOTED(PATH_USB_LST, "$PATH_USB_LST")
++AC_DEFINE_UNQUOTED([PATH_USB_LST], ["$prefix/share/detect/usb.lst"], [missing desc])
+ AC_SUBST(PATH_USB_LST)
+ 
+ 
