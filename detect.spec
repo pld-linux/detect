@@ -80,7 +80,7 @@ Pliki nag³ówkowe do tworzenia programów u¿ywaj±cych biblioteki detect.
 
 %package libs-static
 Summary:	Static detect library
-Summary(pl0:	Statyczna biblioteka detect
+Summary(pl):	Statyczna biblioteka detect
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
