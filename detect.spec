@@ -5,14 +5,14 @@ Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp.linux-mandrake.com/pub/harddrake/SOURCES/%{name}-%{version}.tar.bz2
-Patch0:		detect-sound.patch.bz2
-Patch1:		detect-po.patch.bz2
-Patch2:		detect-ppc.patch.bz2
-Patch3:		detect-ppc2.patch.bz2
-Patch4:		detect-ia64-io-h.patch.bz2
-Patch5:		detect-kver-ppc.patch.bz2
-Patch6:		detect-0.9.72-alpha.patch.bz2
-Patch7:		detect-0.9.72-cpu-detect-ppc.patch.bz2
+Patch0:		%{name}-sound.patch.bz2
+Patch1:		%{name}-po.patch.bz2
+Patch2:		%{name}-ppc.patch.bz2
+Patch3:		%{name}-ppc2.patch.bz2
+Patch4:		%{name}-ia64-io-h.patch.bz2
+Patch5:		%{name}-kver-ppc.patch.bz2
+Patch6:		%{name}-0.9.72-alpha.patch.bz2
+Patch7:		%{name}-0.9.72-cpu-detect-ppc.patch.bz2
 URL:		http://www.linux-mandrake.com/harddrake/
 %ifarch %{ix86}
 BuildRequires:	isapnptools-devel
@@ -22,7 +22,7 @@ BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	gettext-devel
 BuildRequires:	texinfo
-%ifarch %{ix86} 
+%ifarch %{ix86}
 Requires:	isapnptools >= 1.21
 Requires:	detect-lst
 %endif
@@ -30,8 +30,10 @@ Requires:	%{name}-libs = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Libdetect is a library for hardware detection. The API is easy to learn.
-The following hardware can be detected: CPU, Memory, Disk & partitions, Ethernet cards, Floppy drives, Modem, Mouse, SCSI, Sound cards, Video cards, Scanners.
+Libdetect is a library for hardware detection. The API is easy to
+learn. The following hardware can be detected: CPU, Memory, Disk &
+partitions, Ethernet cards, Floppy drives, Modem, Mouse, SCSI, Sound
+cards, Video cards, Scanners.
 
 %package libs
 Summary:	The detect library itself. Necessary to run the detect utility.
@@ -39,10 +41,11 @@ Group:		Libraries
 Provides:	libdetect
 
 %description libs
-Libdetect is a library for hardware detection. The API is easy to learn.
-The following hardware can be detected: CPU, Memory, Disk & partitions, Ethernet cards, Floppy drives, Modem, Mouse, SCSI, Sound cards, Video cards, Scanners.
-This package contains the detect library itself, necessary to run the detect
-utility.
+Libdetect is a library for hardware detection. The API is easy to
+learn. The following hardware can be detected: CPU, Memory, Disk &
+partitions, Ethernet cards, Floppy drives, Modem, Mouse, SCSI, Sound
+cards, Video cards, Scanners. This package contains the detect library
+itself, necessary to run the detect utility.
 
 %package libs-devel
 Summary:	Header files and libraries for developing apps which will use detect
@@ -53,7 +56,9 @@ Obsoletes:	detect-devel
 
 %description libs-devel
 Detect is a library for hardware detection. The API is easy to learn.
-The following hardware can be detected: CPU, Memory, Disk & partitions, Ethernet cards, Floppy drives, Modem, Mouse, SCSI, Sound cards, Video cards, Scanners.
+The following hardware can be detected: CPU, Memory, Disk &
+partitions, Ethernet cards, Floppy drives, Modem, Mouse, SCSI, Sound
+cards, Video cards, Scanners.
 
 %package libs-static
 Summary:	Header files and static libraries for developing apps which will use detect
@@ -62,13 +67,15 @@ Requires:	%{name}-devel = %{version}
 
 %description libs-static
 Detect is a library for hardware detection. The API is easy to learn.
-he following hardware can be detected: CPU, Memory, Disk & partitions, Ethernet cards, Floppy drives, Modem, Mouse, SCSI, Sound cards, Video cards, Scanners.
+he following hardware can be detected: CPU, Memory, Disk & partitions,
+Ethernet cards, Floppy drives, Modem, Mouse, SCSI, Sound cards, Video
+cards, Scanners.
 
 %prep
 rm -rf $RPM_BUILD_ROOT
 
 %setup -q -n detect
-%patch0 -p1 
+%patch0 -p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -83,18 +90,19 @@ rm -rf $RPM_BUILD_ROOT
 
 %build
 rm -f missing
-CFLAGS="$RPM_OPT_FLAGS -I/usr/include/isapnp" 
+CFLAGS="%{rpmcflags} -I%{_includedir}/isapnp"
 %{__libtoolize}
 %{__gettextize}
 aclocal
 %{__autoconf}
 %{__automake}
 autoheader
-%configure 
+%configure
 cat po/Makefile.in > po/Makefile
-make
+%{__make}
 
 %install
+rm -rf $RPM_BUILD_ROOT
 %makeinstall
 #make install \
 #	prefix=$RPM_BUILD_ROOT%{prefix} \
