@@ -1,4 +1,5 @@
 Summary:	Hardware detection library
+Summary(pl):	Biblioteka wykrywaj±ca sprzêt
 Name:		detect
 Version:	0.9.72
 Release:	1
@@ -35,10 +36,17 @@ learn. The following hardware can be detected: CPU, Memory, Disk &
 partitions, Ethernet cards, Floppy drives, Modem, Mouse, SCSI, Sound
 cards, Video cards, Scanners.
 
+%description -l pl
+libdetect to biblioteka do wykrywania sprzêtu. Jej API jest ³atwe do
+nauczenia. Mo¿e wykryæ nastêpuj±cy sprzêt: procesor, pamiêæ, dyski i
+partycje, karty sieciowe, stacje dysków, modemy, myszy, SCSI, karty
+d¼wiêkowe, karty graficzne, skanery.
+
 %package libs
-Summary:	The detect library itself. Necessary to run the detect utility.
+Summary:	The detect library itself, necessary to run the detect utility
+Summary(pl):	W³a¶ciwa biblioteka, niezbêdna do dzia³ania narzêdzia detect
 Group:		Libraries
-Provides:	libdetect
+Obsoletes:	libdetect
 
 %description libs
 Libdetect is a library for hardware detection. The API is easy to
@@ -47,33 +55,41 @@ partitions, Ethernet cards, Floppy drives, Modem, Mouse, SCSI, Sound
 cards, Video cards, Scanners. This package contains the detect library
 itself, necessary to run the detect utility.
 
+%description libs -l pl
+libdetect to biblioteka do wykrywania sprzêtu. Jej API jest ³atwe do
+nauczenia. Mo¿e wykryæ nastêpuj±cy sprzêt: procesor, pamiêæ, dyski i
+partycje, karty sieciowe, stacje dysków, modemy, myszy, SCSI, karty
+d¼wiêkowe, karty graficzne, skanery. Ten pakiet zawiera w³a¶ciw±
+bibliotekê, niezbêdn± do dzia³ania narzêdzia wykrywaj±cego (polecenia
+detect).
+
 %package libs-devel
-Summary:	Header files and libraries for developing apps which will use detect
+Summary:	Header files for developing apps which will use detect
+Summary(pl):	Pliki nag³ówkowe do tworzenia programów u¿ywaj±cych detect
 Group:		Development/Libraries
 Requires:	detect-libs = %{version}
-Provides:	detect-devel, libdetect-devel
 Obsoletes:	detect-devel
+Obsoletes:	libdetect-devel
 
 %description libs-devel
-Detect is a library for hardware detection. The API is easy to learn.
-The following hardware can be detected: CPU, Memory, Disk &
-partitions, Ethernet cards, Floppy drives, Modem, Mouse, SCSI, Sound
-cards, Video cards, Scanners.
+Header files for developing apps which will use detect library.
+
+%description libs-devel -l pl
+Pliki nag³ówkowe do tworzenia programów u¿ywaj±cych biblioteki detect.
 
 %package libs-static
-Summary:	Header files and static libraries for developing apps which will use detect
+Summary:	Static detect library
+Summary(pl0:	Statyczna biblioteka detect
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
 %description libs-static
-Detect is a library for hardware detection. The API is easy to learn.
-he following hardware can be detected: CPU, Memory, Disk & partitions,
-Ethernet cards, Floppy drives, Modem, Mouse, SCSI, Sound cards, Video
-cards, Scanners.
+Static version of detect library.
+
+%description libs-static -l pl
+Statyczna wersja biblioteki detect.
 
 %prep
-rm -rf $RPM_BUILD_ROOT
-
 %setup -q -n detect
 %patch0 -p1
 %patch1 -p1
@@ -119,15 +135,13 @@ ln -s libdetect.so.0.0.0 libdetect.so.0
 ln -s libdetect.so.0.0.0 libdetect.so
 }
 
-
 %find_lang detect
-
-%post libs -p /sbin/ldconfig
-
-%postun libs -p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post	libs -p /sbin/ldconfig
+%postun	libs -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -141,8 +155,8 @@ rm -rf $RPM_BUILD_ROOT
 %files libs-devel
 %defattr(644,root,root,755)
 %doc docs/{Programming,API,ISA-Structure,PCI-Structure}
-%{_libdir}/libdetect.la
-%{_libdir}/libdetect.so
+%attr(755,root,root) %{_libdir}/libdetect.la
+%attr(755,root,root) %{_libdir}/libdetect.so
 %{_includedir}/detect.h
 
 %files libs-static
