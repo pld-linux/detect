@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.linux-mandrake.com/pub/harddrake/SOURCES/%{name}-%{version}.tar.bz2
+# Source0-md5:	0e001355ad217ce907c5ce95673ab4a4
 Patch0:		%{name}-sound.patch.bz2
 Patch1:		%{name}-po.patch.bz2
 Patch2:		%{name}-ppc.patch.bz2
