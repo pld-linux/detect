@@ -113,7 +113,7 @@ CFLAGS="%{rpmcflags} -I%{_includedir}/isapnp"
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-autoheader
+%{__autoheader}
 %configure
 cat po/Makefile.in > po/Makefile
 %{__make}
