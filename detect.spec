@@ -82,7 +82,7 @@ Pliki nag³ówkowe do tworzenia programów u¿ywaj±cych biblioteki detect.
 Summary:	Static detect library
 Summary(pl):	Statyczna biblioteka detect
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-libs-devel = %{version}
 
 %description libs-static
 Static version of detect library.
@@ -146,7 +146,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc docs/{Programming,API,ISA-Structure,PCI-Structure}
 %attr(755,root,root) %{_libdir}/lib*.so
-%attr(755,root,root) %{_libdir}/lib*.la
+%{_libdir}/lib*.la
 %{_includedir}/detect.h
 
 %files libs-static
