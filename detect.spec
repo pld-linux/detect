@@ -2,7 +2,7 @@ Summary:	Hardware detection library
 Summary(pl):	Biblioteka wykrywaj±ca sprzêt
 Name:		detect
 Version:	0.9.72
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.linux-mandrake.com/pub/harddrake/SOURCES/%{name}-%{version}.tar.bz2
@@ -82,7 +82,7 @@ Pliki nag³ówkowe do tworzenia programów u¿ywaj±cych biblioteki detect.
 Summary:	Static detect library
 Summary(pl):	Statyczna biblioteka detect
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-libs-devel = %{version}
 
 %description libs-static
 Static version of detect library.
