@@ -15,13 +15,14 @@ Patch5:		%{name}-kver-ppc.patch.bz2
 Patch6:		%{name}-0.9.72-alpha.patch.bz2
 Patch7:		%{name}-0.9.72-cpu-detect-ppc.patch.bz2
 URL:		http://www.linux-mandrake.com/harddrake/
-%ifarch %{ix86}
-BuildRequires:	isapnptools-devel
-%endif
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	gettext-devel
+%ifarch %{ix86}
+BuildRequires:	isapnptools-devel
+%endif
+BuildRequires:	libtool
 BuildRequires:	texinfo
 %ifarch %{ix86}
 Requires:	isapnptools >= 1.21
@@ -109,7 +110,7 @@ rm -f missing
 CFLAGS="%{rpmcflags} -I%{_includedir}/isapnp"
 %{__libtoolize}
 %{__gettextize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 autoheader
