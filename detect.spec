@@ -156,7 +156,7 @@ rm -rf $RPM_BUILD_ROOT
 %files libs-devel
 %defattr(644,root,root,755)
 %doc docs/{Programming,API,ISA-Structure,PCI-Structure}
-%attr(755,root,root) %{_libdir}/libdetect.la
+%{_libdir}/libdetect.la
 %attr(755,root,root) %{_libdir}/libdetect.so
 %{_includedir}/detect.h
 
