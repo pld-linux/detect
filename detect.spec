@@ -1,5 +1,5 @@
 Summary:	Hardware detection library
-Summary(pl):	Biblioteka wykrywaj±ca sprzêt
+Summary(pl.UTF-8):   Biblioteka wykrywajÄ…ca sprzÄ™t
 Name:		detect
 Version:	0.9.72
 Release:	3
@@ -38,15 +38,15 @@ learn. The following hardware can be detected: CPU, Memory, Disk &
 partitions, Ethernet cards, Floppy drives, Modem, Mouse, SCSI, Sound
 cards, Video cards, Scanners.
 
-%description -l pl
-libdetect to biblioteka do wykrywania sprzêtu. Jej API jest ³atwe do
-nauczenia. Mo¿e wykryæ nastêpuj±cy sprzêt: procesor, pamiêæ, dyski i
-partycje, karty sieciowe, stacje dysków, modemy, myszy, SCSI, karty
-d¼wiêkowe, karty graficzne, skanery.
+%description -l pl.UTF-8
+libdetect to biblioteka do wykrywania sprzÄ™tu. Jej API jest Å‚atwe do
+nauczenia. MoÅ¼e wykryÄ‡ nastÄ™pujÄ…cy sprzÄ™t: procesor, pamiÄ™Ä‡, dyski i
+partycje, karty sieciowe, stacje dyskÃ³w, modemy, myszy, SCSI, karty
+dÅºwiÄ™kowe, karty graficzne, skanery.
 
 %package libs
 Summary:	The detect library itself, necessary to run the detect utility
-Summary(pl):	W³a¶ciwa biblioteka, niezbêdna do dzia³ania narzêdzia detect
+Summary(pl.UTF-8):   WÅ‚aÅ›ciwa biblioteka, niezbÄ™dna do dziaÅ‚ania narzÄ™dzia detect
 Group:		Libraries
 Obsoletes:	libdetect
 
@@ -57,17 +57,17 @@ partitions, Ethernet cards, Floppy drives, Modem, Mouse, SCSI, Sound
 cards, Video cards, Scanners. This package contains the detect library
 itself, necessary to run the detect utility.
 
-%description libs -l pl
-libdetect to biblioteka do wykrywania sprzêtu. Jej API jest ³atwe do
-nauczenia. Mo¿e wykryæ nastêpuj±cy sprzêt: procesor, pamiêæ, dyski i
-partycje, karty sieciowe, stacje dysków, modemy, myszy, SCSI, karty
-d¼wiêkowe, karty graficzne, skanery. Ten pakiet zawiera w³a¶ciw±
-bibliotekê, niezbêdn± do dzia³ania narzêdzia wykrywaj±cego (polecenia
+%description libs -l pl.UTF-8
+libdetect to biblioteka do wykrywania sprzÄ™tu. Jej API jest Å‚atwe do
+nauczenia. MoÅ¼e wykryÄ‡ nastÄ™pujÄ…cy sprzÄ™t: procesor, pamiÄ™Ä‡, dyski i
+partycje, karty sieciowe, stacje dyskÃ³w, modemy, myszy, SCSI, karty
+dÅºwiÄ™kowe, karty graficzne, skanery. Ten pakiet zawiera wÅ‚aÅ›ciwÄ…
+bibliotekÄ™, niezbÄ™dnÄ… do dziaÅ‚ania narzÄ™dzia wykrywajÄ…cego (polecenia
 detect).
 
 %package libs-devel
 Summary:	Header files for developing apps which will use detect
-Summary(pl):	Pliki nag³ówkowe do tworzenia programów u¿ywaj±cych detect
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe do tworzenia programÃ³w uÅ¼ywajÄ…cych detect
 Group:		Development/Libraries
 Requires:	detect-libs = %{version}
 Obsoletes:	detect-devel
@@ -76,19 +76,19 @@ Obsoletes:	libdetect-devel
 %description libs-devel
 Header files for developing apps which will use detect library.
 
-%description libs-devel -l pl
-Pliki nag³ówkowe do tworzenia programów u¿ywaj±cych biblioteki detect.
+%description libs-devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe do tworzenia programÃ³w uÅ¼ywajÄ…cych biblioteki detect.
 
 %package libs-static
 Summary:	Static detect library
-Summary(pl):	Statyczna biblioteka detect
+Summary(pl.UTF-8):   Statyczna biblioteka detect
 Group:		Development/Libraries
 Requires:	%{name}-libs-devel = %{version}
 
 %description libs-static
 Static version of detect library.
 
-%description libs-static -l pl
+%description libs-static -l pl.UTF-8
 Statyczna wersja biblioteki detect.
 
 %prep
