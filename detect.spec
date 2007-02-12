@@ -1,5 +1,5 @@
 Summary:	Hardware detection library
-Summary(pl.UTF-8):   Biblioteka wykrywająca sprzęt
+Summary(pl.UTF-8):	Biblioteka wykrywająca sprzęt
 Name:		detect
 Version:	0.9.72
 Release:	3
@@ -46,7 +46,7 @@ dźwiękowe, karty graficzne, skanery.
 
 %package libs
 Summary:	The detect library itself, necessary to run the detect utility
-Summary(pl.UTF-8):   Właściwa biblioteka, niezbędna do działania narzędzia detect
+Summary(pl.UTF-8):	Właściwa biblioteka, niezbędna do działania narzędzia detect
 Group:		Libraries
 Obsoletes:	libdetect
 
@@ -67,7 +67,7 @@ detect).
 
 %package libs-devel
 Summary:	Header files for developing apps which will use detect
-Summary(pl.UTF-8):   Pliki nagłówkowe do tworzenia programów używających detect
+Summary(pl.UTF-8):	Pliki nagłówkowe do tworzenia programów używających detect
 Group:		Development/Libraries
 Requires:	detect-libs = %{version}
 Obsoletes:	detect-devel
@@ -81,7 +81,7 @@ Pliki nagłówkowe do tworzenia programów używających biblioteki detect.
 
 %package libs-static
 Summary:	Static detect library
-Summary(pl.UTF-8):   Statyczna biblioteka detect
+Summary(pl.UTF-8):	Statyczna biblioteka detect
 Group:		Development/Libraries
 Requires:	%{name}-libs-devel = %{version}
 
