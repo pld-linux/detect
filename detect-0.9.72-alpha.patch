@@ -1,0 +1,15 @@
+diff -ur detect/src/SuperProbe/Utils.c detect.new/src/SuperProbe/Utils.c
+--- detect/src/SuperProbe/Utils.c	Fri Aug 11 10:07:52 2000
++++ detect.new/src/SuperProbe/Utils.c	Thu Jan 17 06:44:35 2002
+@@ -28,6 +28,11 @@
+ 
+ /* $XConsortium: Utils.c /main/7 1996/02/21 17:13:00 kaleb $ */
+ 
++typedef unsigned char u8;
++typedef unsigned short u16;
++typedef unsigned int u32;
++typedef unsigned long u64;
++
+ #include "Probe.h"
+ #if !defined(__PPC__) && !defined(__alpha__)
+ #include "AsmMacros.h"

@@ -1,0 +1,14 @@
+--- detect/src/SuperProbe/Utils.c	Fri Aug 11 10:07:52 2000
++++ detect-patched/src/SuperProbe/Utils.c	Thu May 10 19:29:34 2001
+@@ -32,6 +32,11 @@
+ #if !defined(__PPC__) && !defined(__alpha__)
+ #include "AsmMacros.h"
+ #else
++/* io.h in 2.4 kernel does not define anything without this - PPC */
++#include <linux/version.h>
++#if !(LINUX_VERSION_CODE < KERNEL_VERSION(2,4,0))
++#define __KERNEL__
++#endif
+ #include <asm/io.h>
+ unsigned long isa_io_base;
+ #endif

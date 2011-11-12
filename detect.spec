@@ -7,14 +7,15 @@ License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.linux-mandrake.com/pub/harddrake/SOURCES/%{name}-%{version}.tar.bz2
 # Source0-md5:	0e001355ad217ce907c5ce95673ab4a4
-Patch0:		%{name}-sound.patch.bz2
+Patch0:		%{name}-sound.patch
 Patch1:		%{name}-po.patch.bz2
-Patch2:		%{name}-ppc.patch.bz2
-Patch3:		%{name}-ppc2.patch.bz2
-Patch4:		%{name}-ia64-io-h.patch.bz2
-Patch5:		%{name}-kver-ppc.patch.bz2
-Patch6:		%{name}-0.9.72-alpha.patch.bz2
-Patch7:		%{name}-0.9.72-cpu-detect-ppc.patch.bz2
+# Patch1-md5:	b01b0b1f10895628ab0f40daa855d2e9
+Patch2:		%{name}-ppc.patch
+Patch3:		%{name}-ppc2.patch
+Patch4:		%{name}-ia64-io-h.patch
+Patch5:		%{name}-kver-ppc.patch
+Patch6:		%{name}-0.9.72-alpha.patch
+Patch7:		%{name}-0.9.72-cpu-detect-ppc.patch
 Patch8:		%{name}-acam.patch
 URL:		http://www.linux-mandrake.com/harddrake/
 BuildRequires:	autoconf

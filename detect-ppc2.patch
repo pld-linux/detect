@@ -1,0 +1,22 @@
+--- ./src/scsi.c	Thu Feb  1 14:56:31 2001
++++ ./src/scsi.c.ppc	Thu Feb  1 15:03:43 2001
+@@ -171,7 +171,7 @@
+       result->next = (struct scsintf_info *)NULL;
+ 
+       result->vendor = "Apple";
+-      result->board_id = 0;
++      result->long_id = 0;
+       result->bus = UNKNOWN_BUS;
+ 
+       file = my_malloc(sizeof(folder) * strlen(folder) + 15);
+--- ./src/ethernet.c	Thu Feb  1 14:56:31 2001
++++ ./src/ethernet.c.ppc	Thu Feb  1 15:04:26 2001
+@@ -178,7 +178,7 @@
+       result->next = (struct ethernet_info *)NULL;
+ 
+       result->vendor = "Apple";
+-      result->board_id = 0;
++      result->long_id = 0;
+       result->bus = UNKNOWN_BUS;
+ 
+       file = my_malloc(sizeof(folder) * strlen(folder) + 15);

@@ -1,0 +1,35 @@
+--- /src/ethernet.c	Wed Aug 16 09:56:50 2000
++++ /src/ethernet.c.ppc	Thu Jan 25 15:16:28 2001
+@@ -178,7 +178,7 @@
+       result->next = (struct ethernet_info *)NULL;
+ 
+       result->vendor = "Apple";
+-      result->id = 0;
++      result->board_id = 0;
+       result->bus = UNKNOWN_BUS;
+ 
+       file = my_malloc(sizeof(folder) * strlen(folder) + 15);
+
+--- /src/scsi.c	Wed Aug 16 09:56:50 2000
++++ /src/scsi.c.ppc	Thu Jan 25 15:16:50 2001
+@@ -171,7 +171,7 @@
+       result->next = (struct scsintf_info *)NULL;
+ 
+       result->vendor = "Apple";
+-      result->id = 0;
++      result->board_id = 0;
+       result->bus = UNKNOWN_BUS;
+ 
+       file = my_malloc(sizeof(folder) * strlen(folder) + 15);
+
+--- /src/SuperProbe/AsmMacros.h	Fri Jul 28 05:20:15 2000
++++ /src/SuperProbe/AsmMacros.h.ppc	Thu Jan 25 16:10:28 2001
+@@ -60,7 +60,7 @@
+ /* $XFree86: xc/programs/Xserver/hw/xfree86/SuperProbe/AsmMacros.h,v 3.10.2.1 1999/06/17 16:23:57 hohndel Exp $ */
+ 
+ #if defined(__GNUC__)
+-#if defined(linux) && defined(__alpha__)
++#if defined(linux) && (defined(__alpha__) || defined(__powerpc__))
+ #define inb _inb
+ #define inw _inw
+ #define inl _inl

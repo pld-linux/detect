@@ -1,0 +1,14 @@
+--- detect/src/cpu.c.ppc	Mon Mar  4 19:39:18 2002
++++ detect/src/cpu.c	Mon Mar  4 19:41:43 2002
+@@ -44,10 +44,8 @@
+     printf(_("\nProbing CPU...\n"));
+ 
+   while(getline(&line, &len, cpuinfo) >= 0){
+-#if defined(__alpha__)
++#if defined(__alpha__) || defined(__powerpc__)
+     if(strstr(line, "cpu	")){
+-#elif defined(__PPC__)
+-    if(strstr(line, "processor")) {
+ #else /*ix86 or __powerpc__ */
+     if(strstr(line, "vendor_id")){
+ #endif
