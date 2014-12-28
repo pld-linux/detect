@@ -21,7 +21,7 @@ URL:		http://www.linux-mandrake.com/harddrake/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 %ifarch %{ix86}
 BuildRequires:	isapnptools-devel
 %endif
